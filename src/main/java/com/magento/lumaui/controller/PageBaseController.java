@@ -1,7 +1,7 @@
-package com.magento.luma.pageController;
+package com.magento.lumaui.controller;
 
-import com.magento.luma.WebDriverInitiate;
-import com.magento.luma.pageModel.PageBaseModel;
+import com.magento.lumaui.WebDriverInitiate;
+import com.magento.lumaui.model.PageBaseModel;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import java.time.Duration;
@@ -9,10 +9,18 @@ import java.time.Duration;
 public class PageBaseController extends PageBaseModel {
 
     WebDriver driver = null;
+    static TopNavBarController navBar = null;
 
     public PageBaseController(WebDriver driver) {
         super(driver);
         this.driver = driver;
+    }
+
+    public TopNavBarController navBar(){
+        if(navBar==null){
+            navBar = new TopNavBarController(driver);
+        }
+        return navBar;
     }
 
 

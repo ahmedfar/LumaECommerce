@@ -1,4 +1,4 @@
-package com.magento.luma.pageModel;
+package com.magento.lumaui.model;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

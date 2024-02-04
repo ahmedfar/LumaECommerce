@@ -1,9 +1,12 @@
-package com.magento.luma;
+package com.magento.lumaui;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
 
@@ -36,6 +39,11 @@ public class WebDriverInitiate {
 
     public static String getUrl(){
         return driver.getCurrentUrl();
+    }
+
+    public static void hoverElement(WebElement element){
+        Actions builder = new Actions(driver);
+        builder.moveToElement(element).build().perform();
     }
 
     public static void closeApp(){

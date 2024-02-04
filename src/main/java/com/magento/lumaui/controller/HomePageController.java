@@ -1,4 +1,4 @@
-package com.magento.luma.pageController;
+package com.magento.lumaui.controller;
 
 import org.openqa.selenium.WebDriver;
 

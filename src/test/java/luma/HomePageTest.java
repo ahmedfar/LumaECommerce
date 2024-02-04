@@ -1,10 +1,13 @@
 package luma;
 
-import com.magento.luma.WebDriverInitiate;
-import com.magento.luma.pageController.LumaUIController;
+import com.magento.lumaui.WebDriverInitiate;
+import com.magento.lumaui.controller.LumaUIController;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class HomePageTest {
 
@@ -35,6 +38,13 @@ public class HomePageTest {
     @Test
     public void searchTest(){
         lumaUI.homePage().search("women watch");
+    }
+
+    @Test
+    public void selectTopNavBarItemTest(){
+        List<String> myList = null;
+        myList = lumaUI.homePage().navBar().getMenuItemList("Gear");
+        System.out.println(myList);
 
     }
 

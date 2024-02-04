@@ -1,4 +1,4 @@
-package com.magento.luma.pageModel;
+package com.magento.lumaui.model;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -44,9 +44,7 @@ public class PageBaseModel {
         return driver.findElement(By.xpath("//a/span[contains(text(),'My Cart')]/..//span[contains(@class,'counter-number')]"));
     }
 
-    public WebElement NavBarElement(){
-        return driver.findElement(By.xpath("//nav[contains(@class,'navigation')]"));
-    }
+
 
 
 

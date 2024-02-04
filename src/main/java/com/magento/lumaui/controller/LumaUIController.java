@@ -1,6 +1,6 @@
-package com.magento.luma.pageController;
+package com.magento.lumaui.controller;
 
-import com.magento.luma.WebDriverInitiate;
+import com.magento.lumaui.WebDriverInitiate;
 import org.openqa.selenium.WebDriver;
 
 public class LumaUIController {
