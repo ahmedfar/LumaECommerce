@@ -9,14 +9,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class HomePageTest {
-
-    LumaUIController lumaUI = new LumaUIController();
-
-    @BeforeClass
-    public void init(){
-        lumaUI.startApp();
-    }
+public class HomePageTest extends LumaUIBaseTest{
 
     @Test
     public void pageValidationTest(){
@@ -38,14 +31,16 @@ public class HomePageTest {
     @Test
     public void searchTest(){
         lumaUI.homePage().search("women watch");
+        String actualTitle = lumaUI.searResultPage().getSearchResultPageTitle();
+        Assert.assertTrue(actualTitle.contains("women watch"));
     }
 
     @Test
     public void selectTopNavBarItemTest(){
         List<String> myList = null;
-        myList = lumaUI.homePage().navBar().getMenuItemList("Gear");
-        System.out.println(myList);
-
+        lumaUI.homePage().navBar().selectNavBarItem("Women>Tops>Tees");
+        String actualTitle = lumaUI.searResultPage().getSearchResultPageTitle();
+        Assert.assertEquals(actualTitle, "Tees");
     }
 
 }

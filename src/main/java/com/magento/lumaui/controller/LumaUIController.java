@@ -7,9 +7,14 @@ public class LumaUIController {
 
     WebDriver driver = null;
     private static HomePageController homePageController = null;
+    private static SearchResultPageController searchResultPageController = null;
 
     public void startApp(){
         driver = WebDriverInitiate.startApp();
+    }
+
+    public void closeApp(){
+        driver.close();
     }
 
     public PageBaseController homePage(){
@@ -17,5 +22,12 @@ public class LumaUIController {
             homePageController = new HomePageController(driver);
         }
         return homePageController;
+    }
+
+    public SearchResultPageController searResultPage(){
+        if(searchResultPageController==null){
+            searchResultPageController = new SearchResultPageController(driver);
+        }
+        return searchResultPageController;
     }
 }

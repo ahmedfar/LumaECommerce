@@ -23,7 +23,6 @@ public class PageBaseController extends PageBaseModel {
         return navBar;
     }
 
-
     public void clickLumaLogo(){
         logoLink().click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
@@ -40,8 +39,5 @@ public class PageBaseController extends PageBaseModel {
         searchButton().click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
     }
-
-
-
 
 }

@@ -23,7 +23,7 @@ public class SearchResultPageModel {
     }
 
     public WebElement searchResultPageTitleText(){
-        return driver.findElement(By.xpath("//h1[contains(@class, 'page-title')]/strong"));
+        return driver.findElement(By.xpath("//h1[contains(@class, 'page-title')]/span"));
     }
 
     public WebElement gridViewLink(){

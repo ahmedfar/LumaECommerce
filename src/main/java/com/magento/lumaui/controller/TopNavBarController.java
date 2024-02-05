@@ -25,14 +25,15 @@ public class TopNavBarController {
         String[] menuList = item.split(">");
         WebElement menuElement = navBarElement();
         for(int i=0; i<menuList.length; i++){
-            if(i<menuList.length){
+            if(i<menuList.length-1){
                 menuElement = menuElement.findElement(By.xpath("//li/a/span[contains(text(),'" + menuList[i] + "')]"));
                 WebDriverInitiate.hoverElement(menuElement);
-                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
             }
-            else{
-                menuElement = menuElement.findElement(By.xpath("//li/a/span[contains(text(),'" + menuList[i] + "')]"));
+            if(i==menuList.length-1){
+                menuElement = menuElement.findElement(By.xpath("//li/a/span[contains(text(),'" + menuList[i] + "')]/.."));
                 menuElement.click();
+                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
             }
         }
     }
@@ -60,29 +61,6 @@ public class TopNavBarController {
                         listItems.add(element.getText());
                     }
                 }
-
-
-//
-//                if(i==0){
-//                    menuElementList = menuElement.findElements(By.xpath("ul/li/span"));
-//                    for(WebElement element: menuElementList){
-//                        listItems.add(element.getText());
-//                    }
-//                }
-//                else if(i<2){
-//                    menuElement = menuElement.findElement(By.xpath("/ul/li/a/span[contains(text(),'" + menuList[i] + "')]"));
-//                    WebDriverInitiate.hoverElement(menuElement);
-//                    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
-//                    menuElementList = menuElement.findElements(By.xpath("ul/li/span"));
-//                    for(WebElement element: menuElementList){
-//                        listItems.add(element.getText());
-//                    }
-//
-//                }
-//                else{
-//                    menuElement = menuElement.findElement(By.xpath("//li/a/span[contains(text(),'" + menuList[i] + "')]"));
-//                    menuElement.click();
-//                }
             }
 
         }
